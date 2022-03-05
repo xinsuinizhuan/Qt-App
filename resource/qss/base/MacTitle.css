@@ -1,0 +1,67 @@
+#titleWidget{
+	background: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	max-height: 40px;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: rgb(231, 231, 231);
+}
+
+#titleWidget QToolButton {
+    width:  16px;
+    height: 16px;
+    min-width:  16px;
+    max-width:  16px;
+    min-height: 16px;
+    max-height: 16px;
+    border-width: 0;
+}
+
+#titleWidget QToolButton:hover{
+	background-color: #ffffff;
+}
+
+#titleWidget QToolButton:focus {
+	border-width: 0;
+}
+
+#closeButton {
+    border-image: url(resource/image/base/title/titlebutton-close2.png);
+}
+#closeButton:hover {
+    border-image: url(resource/image/base/title/titlebutton-close-active2.png);
+}
+#closeButton:pressed {
+    border-image: url(resource/image/base/title/titlebutton-close-alt2.png);
+}
+
+#minButton {
+    border-image: url(resource/image/base/title/titlebutton-minimize2.png);
+}
+#minButton:hover {
+    border-image: url(resource/image/base/title/titlebutton-minimize-active2.png);
+}
+#minButton:pressed {
+    border-image: url(resource/image/base/title/titlebutton-minimize-alt2.png);
+}
+
+#restoreButton {
+    border-image: url(resource/image/base/title/titlebutton-restore2.png);
+}
+#restoreButton:hover {
+    border-image: url(resource/image/base/title/titlebutton-restore-active2.png);
+}
+#restoreButton:pressed {
+    border-image: url(resource/image/base/title/titlebutton-restore-alt2.png);
+}
+
+#maxButton {
+    border-image: url(resource/image/base/title/titlebutton-maximize2.png);
+}
+#maxButton:hover {
+    border-image: url(resource/image/base/title/titlebutton-maximize-active2.png);
+}
+#maxButton:pressed {
+    border-image: url(resource/image/base/title/titlebutton-maximize-alt2.png);
+}

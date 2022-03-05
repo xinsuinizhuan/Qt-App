@@ -1,0 +1,15 @@
+#homePageLabel {
+	font-weight: bold;
+	font-size: 30px;
+	font-weight: bold;
+	qproperty-alignment: AlignCenter;
+}
+
+#iconLabel{
+	min-width: 25px;
+    max-width: 25px;
+    min-height: 25px;
+    max-height: 25px;
+    border-width: 0;	
+	border-image: url(resource/image/plugintemplate/icon.png);
+}

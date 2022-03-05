@@ -1,0 +1,54 @@
+.ImageListView{
+	max-height: 100px;
+	min-height: 100px;
+}
+
+.ImageListView::icon{
+	min-width: 80px;
+	min-height: 80px;
+}
+
+.ImageListView::item{
+	min-height: 80px;
+}
+
+#MenuBox{
+	border-style:none none solid none;
+    border-radius: 0px;
+    background: white;
+    font-size: 14px;
+}
+
+#InfoWidget{
+	background: #f3f3f3;
+}
+
+#ShapeWidget{
+	background:#e1e1e1; 
+	font-size: 13px;
+}
+
+QListWidget::Item{
+	height: 30px;
+}
+
+#iconLabel{
+	min-width: 25px;
+    max-width: 25px;
+    min-height: 25px;
+    max-height: 25px;
+    border-width: 0;	
+	border-image: url(resource/image/plugintemplate/icon.png);
+}
+
+#QssButton{
+	min-width: 100px;
+	font-size: 14px;
+    border-width: 0;
+	border-radius: 1;
+}
+
+#QssButton:hover{
+	color: #0066ff;
+	background-color: white;
+}

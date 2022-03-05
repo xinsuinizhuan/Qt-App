@@ -1,0 +1,115 @@
+.PlayControlWidget{
+	max-height: 100px;
+	min-height: 100px;
+	background: rgb(13,14,17);
+}
+
+.PlayControlWidget QWdiget{
+	background: transparent;
+}
+
+.PlayControlWidget QSlider::groove:horizontal,QSlider::add-page:horizontal{
+    height:3px;
+    border-radius:3px;
+    background:#CECECE;
+}
+
+.PlayControlWidget QSlider::sub-page:horizontal{
+    height:8px;
+    border-radius:3px;
+    background:rgb(0,123,146);
+}
+
+.PlayControlWidget QSlider::handle:horizontal{	
+	width:8px;
+	background-color:rgb(0,123,146);
+	margin:-3px 0px -3px 0px;
+	border-radius:4px;
+}
+
+.PlayControlWidget QComboBox {
+    background-color: transparent;
+}
+
+.PlayControlWidget QComboBox:!editable{
+	background-color: transparent;
+}
+
+.PlayControlWidget QComboBox:!editable:on{
+	background-color: transparent;
+}
+
+.PlayControlWidget QComboBox QAbstractItemView {
+    border-radius: 0px;
+    background-color: rgb(13,14,17);
+}
+
+.PlayControlWidget QPushButton{
+	background-color: transparent;
+	border: 5;
+}
+
+#PlayButton{
+	min-width:  50px;
+    max-width:  50px;
+    min-height: 50px;
+    max-height: 50px;
+	qproperty-icon: url(resource/image/mediaplayer/play.png)off, url(resource/image/mediaplayer/pause.png)on;
+	qproperty-iconSize: 50px 50px;
+}
+
+#PreviousButton{
+	min-width:  40px;
+    max-width:  40px;
+    min-height: 40px;
+    max-height: 40px;
+	qproperty-icon: url(resource/image/mediaplayer/previous.png);
+	qproperty-iconSize: 40px 40px;
+}
+
+#NextButton{
+	min-width:  40px;
+    max-width:  40px;
+    min-height: 40px;
+    max-height: 40px;
+	qproperty-icon: url(resource/image/mediaplayer/next.png);
+	qproperty-iconSize: 40px 40px;
+}
+
+#MuteButton{
+	min-width:  30px;
+    max-width:  30px;
+    min-height: 30px;
+    max-height: 30px;
+	qproperty-icon: url(resource/image/mediaplayer/volume.png)off, url(resource/image/mediaplayer/mute.png)on;
+	qproperty-iconSize: 30px 30px;
+}
+
+#FullScreenButton{
+	min-width:  30px;
+    max-width:  30px;
+    min-height: 30px;
+    max-height: 30px;
+	qproperty-icon: url(resource/image/mediaplayer/exit_full_screen.png)off, url(resource/image/mediaplayer/full_screen.png)on;
+	qproperty-iconSize: 30px 30px;
+}
+
+#SetupButton{
+	min-width:  30px;
+    max-width:  30px;
+    min-height: 30px;
+    max-height: 30px;
+	qproperty-icon: url(resource/image/mediaplayer/setup.png);
+	qproperty-iconSize: 30px 30px;
+}
+
+#ShowListButton{
+	min-width:  30px;
+    max-width:  30px;
+    min-height: 30px;
+    max-height: 30px;
+	qproperty-icon: url(resource/image/mediaplayer/list.png);
+	qproperty-iconSize: 30px 30px;
+}
+
+ 

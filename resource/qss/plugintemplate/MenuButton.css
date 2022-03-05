@@ -1,0 +1,126 @@
+#menuWidget{
+    min-width: 200px;
+    max-width: 200px;
+    padding: 0px;
+    background: rgb(54, 62, 78);
+	border-bottom-left-radius: 5px;
+}
+
+.GroupButton, .GroupItemButton {
+	border: 0;
+    color: #EEE;
+	border-radius: 0;
+	background: rgb(54, 62, 78);
+}
+
+.GroupButton:hover, .GroupItemButton:hover {
+	border-color: #389cff;
+	background: #389cff;
+    color: white;
+}
+
+.GroupButton {
+    height: 40px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 6px;
+}
+
+.GroupItemButton {
+    height: 38px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 35px;
+	border-width: 3px;
+	border-style: none none none solid;
+	border-color: rgb(54, 62, 78);
+}
+
+.GroupItemButton:checked {
+	color: #39a3ff;
+    background: rgb(85,79,73);
+    border-color: #39a3ff;
+}
+
+#ToolGroupButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool.png);
+}
+
+#AbortGroupButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/abort.png);
+}
+
+#PluginsButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool-other.png);
+}
+
+#QtButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool-other.png);
+}
+
+#TestGroupButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/test.png);
+}
+
+#CrcButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool-other.png);
+}
+
+#SerialButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool-other.png);
+}
+
+#TcpButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool-other.png);
+}
+
+#PageTestButton{
+	qproperty-icon: url(resource/image/plugintemplate/menu/tool-other.png);
+}
+
+/******************************************************************************/
+
+#QssButton{
+	min-width: 100px;
+	font-size: 14px;
+    border-width: 0;
+	border-radius: 1;
+}
+
+#QssButton:hover{
+	color: #0066ff;
+	background-color: white;
+}
+
+#ConfigButton, #AccountButton{
+	width:  30px;
+    height: 30px;
+    min-width:  30px;
+    max-width:  30px;
+    min-height: 30px;
+    max-height: 30px;
+    border-width: 0;
+}
+
+#ConfigButton {
+	border-image: url(resource/image/plugintemplate/setting.png);
+}
+
+#ConfigButton:hover{
+	border-image: url(resource/image/plugintemplate/setting-hover.png);
+}
+
+#AccountButton {
+	background-color: transparent;
+	border-width: 0;
+	border-image: url(resource/image/plugintemplate/offline.png);
+	/*qproperty-icon: url(image/offline.png)off, url(image/online.png)on;*/
+}
+
+#AccountButton:hover {
+	border-image: url(resource/image/plugintemplate/account-hover.png);
+}
+
+#AccountButton:checked{
+	border-image: url(resource/image/plugintemplate/online.png);
+}

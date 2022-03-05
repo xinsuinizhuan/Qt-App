@@ -1,0 +1,31 @@
+{
+	"database": {
+		"type": "SQLite"
+	},
+	"plugintemplate_qss_files": [
+		"resource/qss/base/Common.css",
+		"resource/qss/base/MacTitle.css",
+		"resource/qss/base/CommonWidget.css",
+		"resource/qss/base/CrashWidget.css",
+		"resource/qss/plugintemplate/HomePage.css",
+		"resource/qss/plugintemplate/TcpPage.css",
+		"resource/qss/plugintemplate/CRCPage.css",
+		"resource/qss/plugintemplate/MenuButton.css",
+		"resource/qss/plugintemplate/LoginWidget.css"
+	],
+	"picturetool_qss_files": [
+		"resource/qss/base/Common.css",
+		"resource/qss/base/MacTitle.css",
+		"resource/qss/base/CommonWidget.css",
+		"resource/qss/base/CrashWidget.css",
+		"resource/qss/picturetool/main.css"
+	],
+	"meidaplay_qss_files": [
+		"resource/qss/base/Common.css",
+		"resource/qss/mediaplayer/PlayControl.css",
+		"resource/qss/mediaplayer/PlayList.css"
+	],
+	"font_files": [
+		"resource/fonts/pingfangSS.ttf"
+	]
+}

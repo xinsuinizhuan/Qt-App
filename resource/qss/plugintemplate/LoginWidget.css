@@ -1,0 +1,56 @@
+#AvatarLabel{
+	color: transparent;
+    min-width:  200px;
+    max-width:  200px;
+    min-height: 200px;
+    max-height: 200px;
+	border-width: 0 0 0 0;
+	border-image: url(resource/image/plugintemplate/avatar.png)
+}
+
+#PromptLabel{
+	border: 2px solid gray;
+    min-height: 14px;
+    max-height: 14px;
+	font-size: 14px;
+	color: red;
+    border-width: 0 0 0 0;
+}
+
+#FlatButton {
+	background-color: transparent;
+	border: 0;
+	min-height: 20px;
+}
+
+#FlatButton:hover{
+	background-color: transparent;
+	color: #39a3ff;
+}
+
+#LoginWidget QCheckBox::indicator{
+    subcontrol-origin: border;
+    subcontrol-position: left center;
+
+    height: 15px;
+	width: 15px;
+    border-width: 0 0 0 0;
+}
+
+#AccountLabel{
+	font-size: 16px;
+	qproperty-alignment: AlignCenter;
+	color: rgb(58,216,111);
+}
+
+#usernameEdit{
+	height: 40px;
+	font-size: 14px;
+	border-style: none none solid none;
+	border-radius: 0px;
+}
+
+#WhiteWidget{
+	background: white;
+}
+	
