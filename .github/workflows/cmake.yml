@@ -1,32 +1,25 @@
 name: CMake Build
 
 on: 
-  # push代码时触发workflow
   push:
-    paths-ignore: # 下列文件的变更不触发部署，可以自行添加
-        - '.github/workflows/clean_cache.yml'
-        - '.github/workflows/delete_workflow.yml'
-        - '.github/workflows/qmake.yml'
-        - '.github/workflows/readme.yml'
-        - '.github/workflows/toolchain.yml'    
+    paths-ignore:
         - 'doc/**'
-        - 'translation/**'
+        - 'translations/**'
         - '.clang-*'
         - '.gitignore'
+        - '*.pri'
         - 'LICENSE'
+        - '*.pro'
         - 'README*'
   pull_request:
-    paths-ignore: # 下列文件的变更不触发部署，可以自行添加
-        - '.github/workflows/clean_cache.yml'
-        - '.github/workflows/delete_workflow.yml'
-        - '.github/workflows/qmake.yml'
-        - '.github/workflows/readme.yml'
-        - '.github/workflows/toolchain.yml'    
+    paths-ignore:
         - 'doc/**'
-        - 'translation/**'
+        - 'translations/**'
         - '.clang-*'
         - '.gitignore'
+        - '*.pri'
         - 'LICENSE'
+        - '*.pro'
         - 'README*'
 
 env:
@@ -64,25 +57,29 @@ jobs:
         with:
           os_name: ${{ matrix.os }}
 
-      - name: Configure msvc for amd64
+      - name: Configure and build windows
         if: startsWith(matrix.os, 'windows')
-        uses: ilammy/msvc-dev-cmd@v1 
-        with:
-          arch: amd64
-      - name: Configure windows
-        if: startsWith(matrix.os, 'windows')
+        shell: pwsh
+        run: |
+          .\scripts\windows\setVsDev.ps1
+          cmake `
+            -S . `
+            -B ./build `
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} `
+            -G "${{ matrix.generators }}"
+          cmake --build ./build --config ${{ matrix.build_type }}
+      - name: Configure and build ubuntu
+        if: startsWith(matrix.os, 'ubuntu')
         shell: bash
         run: |
           cmake \
             -S . \
             -B ./build \
-            -DCMAKE_C_COMPILER=cl \
-            -DCMAKE_CXX_COMPILER=cl \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -G "${{ matrix.generators }}" \
-            -DCMAKE_INSTALL_PREFIX:PATH=instdir
-      - name: Configure macos or ubuntu
-        if: startsWith(matrix.os, 'macos') || startsWith(matrix.os, 'ubuntu')
+            -G "${{ matrix.generators }}"
+          cmake --build ./build --config ${{ matrix.build_type }}
+      - name: Configure and build macos
+        if: startsWith(matrix.os, 'macos')
         shell: bash
         run: |
           cmake \
@@ -90,12 +87,7 @@ jobs:
             -B ./build \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
             -DCMAKE_OSX_ARCHITECTURES="${{ matrix.arch }}" \
-            -G "${{ matrix.generators }}" \
-            -DCMAKE_INSTALL_PREFIX:PATH=instdir
-
-      - name: Build
-        shell: bash
-        run: |
+            -G "${{ matrix.generators }}"
           cmake --build ./build --config ${{ matrix.build_type }}
 
       - name: Deploy windows
