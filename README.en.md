@@ -59,7 +59,7 @@ crash reporting program;
     7.  [gui](src/gui): Encapsulated interface component;
 
     8.  [plugins](src/plugins):Plug-in;
-        1.  [aboutplugin](src/plugins/aboutplugin)：关于插件;
+        1.  [aboutplugin](src/plugins/aboutplugin):About the plug-in;
         2.  [coreplugin](src/plugins/coreplugin): Core plug-in, main interface, menu, toolbar, status bar, settings, plug-in manager, etc.;
         3.  [guiplugin](src/plugins/guiplugin): GUI plug-in, some GUI components customized based on QSS style;
         4.  [hashplugin](src/plugins/hashplugin): Hash plug-in, the hash algorithm provided by QT;
@@ -77,12 +77,12 @@ crash reporting program;
     >
     > 1.  [app/CMakeLists](/apps/app/CMakeLists.txt), using this CMakeLists.txt, you can generate a bundle on MacOS and the icon can be displayed normally, but there is no PkgInfo file;
     > 2.  How does cmake generate PkgInfo files?
-    >     1.  WireShark use`set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/PkgInfo PROPERTIES MACOSX_PACKAGE_LOCATION .)`类似这种方式，拷贝到bundle中；
+    >     1.  WireShark use`set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/PkgInfo PROPERTIES MACOSX_PACKAGE_LOCATION .)`Similar to this method, copy it to the bundle;
     > 3.  qmake will generate a PkgInfo file by default, you only need to specify`TARGET=app`or`CONFIG+=bundle`That’s it;
 
 -   > Under Unix systems, you need to use static libraries as much as possible to avoid dependence on dynamic libraries;
     >
-    > 1.  本项目有几个模块是动态库，因为是plugin，需要动态加载；
+    > 1.  Several modules in this project are dynamic libraries, and because they are plugins, they need to be loaded dynamically;
     > 2.  Then you need to package these dynamic libraries and load them at runtime. You also need to modify the rpath`"-Wl,-rpath,\'\$$ORIGIN\':\'\$$ORIGIN/lib\':'\$$ORIGIN/../lib'")`, set it, otherwise the dynamic library will not be found;
     > 3.  Or use install_name_tool (macos), patchelf/chrpath (linux) to modify the dependency path of the dynamic library, which is very troublesome;
     > 4.  Also consider that these libraries can be shared, so do not package them repeatedly;
