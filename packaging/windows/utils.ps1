@@ -5,25 +5,29 @@ function Remove-SafeItem {
     )
     
     try {
-        $items = Get-ChildItem -Path $Path -Force -ErrorAction SilentlyContinue
+        $resolvedPaths = Resolve-Path -Path $Path -ErrorAction SilentlyContinue
         
-        if ($items) {
-            foreach ($item in $items) {
-                if ($item.PSIsContainer) {
-                    Remove-Item -Path $item.FullName -Recurse -Force -Verbose
-                    Write-Host "Folder '$($item.FullName)' deleted."
+        if (-not $resolvedPaths) {
+            Write-Host "No valid path found for the pattern: '$Path'."
+            return
+        }
+        foreach ($resolvedPath in $resolvedPaths) {
+            if (Test-Path $resolvedPath.Path) {
+                if (Test-Path $resolvedPath.Path -PathType Container) {
+                    Remove-Item -Path $resolvedPath.Path -Recurse -Force -Verbose
+                    Write-Host "Directory '$($resolvedPath.Path)' has been removed."
                 }
-                else {
-                    Remove-Item -Path $item.FullName -Force -Verbose
-                    Write-Host "File '$($item.FullName)' deleted."
+                elseif (Test-Path $resolvedPath.Path -PathType Leaf) {
+                    Remove-Item -Path $resolvedPath.Path -Force -Verbose
+                    Write-Host "File '$($resolvedPath.Path)' has been removed."
                 }
             }
-        }
-        else {
-            Write-Host "No items matched the path '$Path'."
+            else {
+                Write-Host "The resolved path '$($resolvedPath.Path)' does not exist or has been removed."
+            }
         }
     }
     catch {
-        Write-Error "An error occurred while deleting items: $_"
+        Write-Error "An error occurred: $($_.Exception.Message)"
     }
 }

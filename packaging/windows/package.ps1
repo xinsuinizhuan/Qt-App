@@ -24,14 +24,17 @@ foreach ($file in $allFiles) {
     }
 }
 
-$testFiles = Get-ChildItem -Path $packet_dir -Filter *Test* | ForEach-Object { $_.FullName }
-$pluginFiles = Get-ChildItem -Path $packet_dir -Filter *plugin*.dll | ForEach-Object { $_.FullName }
-$allFiles = $testFiles + $pluginFiles
-foreach ($file in $allFiles) {
-    Remove-SafeItem -Path $file
+$Remove_List_Relative = @(
+    "*Test*",
+    "*plugin*.dll",
+    "examples"
+)
+$Remove_List_Absolute = $Remove_List_Relative | ForEach-Object {
+    Join-Path $packet_dir $_
 }
-
-Remove-Item -Path (Join-Path $packet_dir "examples") -Recurse -Force -Verbose
+foreach ($item in $Remove_List_Absolute) {
+    Remove-SafeItem -Path $item
+}
 
 Write-Host "Packaging complete."
 
